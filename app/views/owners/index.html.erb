@@ -2,6 +2,6 @@
 
 <ul>
   <% @owners.each do |owner| %>
-    <li><%= owner.name %></li>
+    <li><%= link_to "#{owner.name}", owner_path(owner) %></li>
   <% end %>
 </ul>

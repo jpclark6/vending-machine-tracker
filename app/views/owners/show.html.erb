@@ -1,0 +1,5 @@
+<h1><%= @owner.name %></h1>
+<h2>Machines:</h2>
+<% @owner.machines.each do |machine| %>
+<h3><%= link_to "#{machine.location}", machine_path(machine) %></h3>
+<% end %>

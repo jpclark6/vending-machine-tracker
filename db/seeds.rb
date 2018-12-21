@@ -6,8 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-owner = Owner.create(name: "Sam's Snacks")
-dons  = owner.machines.create(location: "Don's Mixed Drinks")
-
-owner = Owner.create(name: "Ted's Snacks")
-dons  = owner.machines.create(location: "Ted's Mixed Drinks")
+@sam = Owner.create(name: "Sam's Snacks")
+@machine_1 = @sam.machines.create(location: "Don's Mixed Drinks")
+@machine_2 = @sam.machines.create(location: "Turing Basement")
+@machine_3 = @sam.machines.create(location: "DIA Alien Hideout")
+@snack_1 = Snack.create(name: 'Snickers', price: 2, machines: [@machine_1, @machine_2])
+@snack_2 = Snack.create(name: 'Mars', price: 10, machines: [@machine_1])
+@snack_3 = Snack.create(name: 'Soda', price: 1, machines: [@machine_2])
+@snack_4 = Snack.create(name: 'Goo', price: 7749, machines: [@machine_3])

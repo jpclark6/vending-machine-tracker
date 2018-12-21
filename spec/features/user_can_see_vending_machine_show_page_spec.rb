@@ -10,14 +10,14 @@ describe 'as a user' do
   it 'can see the names of all snacks associated with vending machine with price' do
     visit machine_path(@machine_1)
     expect(page).to have_content("Name: #{@snack_1.name}")
-    expect(page).to have_content("Price: #{@snack_1.price}")
+    expect(page).to have_content("Price: $#{@snack_1.price}")
     expect(page).to have_content("Name: #{@snack_2.name}")
-    expect(page).to have_content("Price: #{@snack_2.price}")
+    expect(page).to have_content("Price: $#{@snack_2.price}")
     expect(page).to have_no_content("Name: #{@snack_3.name}")
-    expect(page).to have_no_content("Price: #{@snack_3.price}")
+    expect(page).to have_no_content("Price: $#{@snack_3.price}")
   end
   it 'can see average price for all snacks in the machine' do
     visit machine_path(@machine_2)
-    expect(page).to have_content("Average price: #{(@snack_3.price + @snack_1.price)/2}")
+    expect(page).to have_content("Average price: $#{(@snack_3.price + @snack_1.price)/2}")
   end
 end
